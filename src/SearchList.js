@@ -345,25 +345,13 @@ export default class SearchList extends Component {
 
   render () {
     return (
-      <Animated.View
-        ref='view'
-        style={[{
-          // 考虑上动画以后页面要向上移动，这里必须拉长
-          height: Theme.size.windowHeight + Theme.size.toolbarHeight,
-          width: Theme.size.windowWidth,
-          transform: [
-            {
-              translateY: this.state.animatedValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, -Theme.size.toolbarHeight]
-              })
-            }
-          ]
-        }, this.props.style]}>
+
         <View style={[{
           flex: 1,
           backgroundColor: this.props.searchListBackgroundColor
         }]}>
+
+        {/*
           <Toolbar
             animatedValue={this.state.animatedValue}
 
@@ -398,6 +386,7 @@ export default class SearchList extends Component {
             searchInputTextColor={this.props.searchInputTextColor}
             searchInputTextColorActive={this.props.searchInputTextColorActive}
             ref='searchBar' />
+            */}
           {this._renderStickHeader()}
 
           <View
@@ -408,8 +397,6 @@ export default class SearchList extends Component {
             {this._renderSectionIndex.bind(this)()}
           </View>
         </View>
-        {this._renderMask.bind(this)()}
-      </Animated.View>
     )
   }
 
